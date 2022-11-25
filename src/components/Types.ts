@@ -1,7 +1,8 @@
 // INPUT TYPE INTERFACE
 export interface InputUI extends React.HTMLAttributes<HTMLInputElement> {
     onChange: (data: any) => void,
-    value: string
+    value: string,
+    placeholder : string | undefined
 }
 
 
@@ -32,6 +33,7 @@ export type tableContextType = {
     currentSearch: string,
     filterByField: string,
     updateColumns : (cols:columnType[]) => void 
+    updateFilterByField : (col:columnType) => void
 }
 
 
@@ -41,7 +43,7 @@ export type tableType = {
     currentSearch: string,
     filterByField: string
     updateColumns : (cols:columnType[]) => void 
-
+    updateFilterByField : (col:columnType) => void
 }
 
 
