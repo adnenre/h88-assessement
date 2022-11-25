@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { capitalize } from "../../utils"
 import Icon from '../Icon/Icon'
 import { columnType } from '../Types'
