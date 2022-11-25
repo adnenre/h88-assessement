@@ -8,6 +8,7 @@ export interface InputUI extends React.HTMLAttributes<HTMLInputElement> {
 export type columnType = {
     id: string,
     name: string,
+    checked:boolean 
 
 }
 
@@ -30,7 +31,7 @@ export type tableContextType = {
     columns: columnType[],
     currentSearch: string,
     filterByField: string,
-
+    updateColumns : (cols:columnType[]) => void 
 }
 
 
@@ -39,5 +40,11 @@ export type tableType = {
     rows: rowType[],
     currentSearch: string,
     filterByField: string
+    updateColumns : (cols:columnType[]) => void 
 
+}
+
+
+export type checkBoxType =  columnType & {
+    onChange : (data:columnType) => void
 }

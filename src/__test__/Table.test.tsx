@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {render} from '@testing-library/react'
 import Table from '../components/Table'
 import uniqueId from '../utils'
+import { columnType } from '../components/Types'
 
 describe("<Table />", () => {
 
@@ -9,16 +10,18 @@ describe("<Table />", () => {
 
 
 //  COUNTRY COMPONENT FOR TEST
+const cols = [{ id: '1', name: 'code' ,checked:false}, { id: '2', name: 'name',checked:false }]
 function Tabletest(){
    
     const tableprops = {
-        columns: [{ id: '1', name: 'code' }, { id: '2', name: 'name' }],
+        columns: cols,
         rows: [{id:uniqueId('test') , code:'AD',name:'Andora'},{id:uniqueId('test') , code:'AD',name:'Andora'}],
         currentSearch: '',
-        filterByField: 'code'
+        filterByField: 'code',
+        updateColumns : (cols:columnType[]) => cols
        }
 
-  return <Table  {...tableprops}/>
+  return <Table   {...tableprops}/>
 }
 
 const setup = () => {

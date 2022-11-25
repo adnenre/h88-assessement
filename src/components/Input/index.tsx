@@ -18,7 +18,7 @@ const Input = ({value, onChange ,...props }: InputUI) => {
     },[])
 
     return (
-        <input ref={inputRef} value={value} onChange={handleChange} aria-label="search-input" className='w-full mb-4 p-5 text-gray-900 whitespace-no-wrap dark:text-white bg-gray-100 hover:bg-white focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none transition-all' {...props} />
+        <input ref={inputRef} value={value} onChange={handleChange} aria-label="search-input" className='w-full mb-7 p-5 text-gray-900 whitespace-no-wrap dark:text-white bg-gray-100 hover:bg-white focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none transition-all' {...props} />
     )
 }
 
