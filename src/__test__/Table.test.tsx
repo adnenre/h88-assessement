@@ -18,7 +18,8 @@ function Tabletest(){
         rows: [{id:uniqueId('test') , code:'AD',name:'Andora'},{id:uniqueId('test') , code:'AD',name:'Andora'}],
         currentSearch: '',
         filterByField: 'code',
-        updateColumns : (cols:columnType[]) => cols
+        updateColumns : (cols:columnType[]) => cols,
+        updateFilterByField : (col: columnType) => col
        }
 
   return <Table   {...tableprops}/>
