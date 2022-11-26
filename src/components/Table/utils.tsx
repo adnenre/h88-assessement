@@ -1,4 +1,3 @@
+import { columnType } from '../Types';
 
-import { columnType } from "../Types";
-
-export const  isChecked = (col :columnType) => col.checked;
+export const isChecked = (col: columnType) => col.checked;

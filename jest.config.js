@@ -1,8 +1,8 @@
 module.exports = {
-    testEnvironment : 'jest-environment-jsdom',
+    testEnvironment: 'jest-environment-jsdom',
     globals: {
         'ts-jest': {
-          isolatedModules: false
-        }
-      }
-}
+            isolatedModules: false,
+        },
+    },
+};
