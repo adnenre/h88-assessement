@@ -5,7 +5,7 @@ type tableRowProps = {
 };
 const TableRow = ({ children, ...rest }: tableRowProps) => {
     return (
-        <tr className="w-auto hover:bg-gray-100" {...rest}>
+        <tr className="w-1/6 hover:bg-gray-100" {...rest}>
             {children}
         </tr>
     );
