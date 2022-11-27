@@ -16,7 +16,7 @@ const TableHead = () => {
         updateFilterByField(col);
     };
     return (
-        <thead>
+        <thead data-testid='table-header-testid'>
             <TableRow>
                 {columns.filter(isChecked).map((col) => (
                     <TableHeaderCell key={col.id} onClick={handleHeadCellClick(col)}>

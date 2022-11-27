@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { render } from '@testing-library/react';
 import Table from '../components/Table';
-import uniqueId from '../utils';
 import { columnType, Tabletype } from '../components/Types';
 import { buildColumns } from '../components/Table/utils';
-import { check } from 'prettier';
+
 
 describe('<Table />', () => {
     // table column
