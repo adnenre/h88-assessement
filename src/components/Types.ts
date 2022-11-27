@@ -33,13 +33,21 @@ export type tableContextType = {
     updateFilterByField: (col: columnType) => void;
 };
 
-export type tableType = {
+export type Tabletype = {
+    rows : rowType[],
+    colsToDisplay? : string[],
+    currentSearch : string,
+    filterByField?: string,
+    displayPanel?  : boolean
+}
+export type tableContainerType = {
     columns: columnType[];
     rows: rowType[];
     currentSearch: string;
     filterByField: string;
     updateColumns: (cols: columnType[]) => void;
     updateFilterByField: (col: columnType) => void;
+    displayPanel? : boolean 
 };
 
 export type checkBoxType = columnType & {

@@ -9,28 +9,24 @@ const List = () => {
     // GET COLUMNS AND THE FUNCTION UPDATECOLUMNS FOR THE TABLE CONTEXT
     const { updateColumns, columns } = useTableContext();
 
-    // COLUMN STATE
-    const [columnsState, setColumnsState] = useState<columnType[]>(columns);
 
     // EVENT HANDELER
     const handleChange = (data: columnType) => {
         // UPDATE CURRENT UPDATED COL STATE
-        let newState = [...columnsState].map((col) => {
+        let newState = [...columns].map((col) => {
             if (col.id === data.id) {
                 return { ...col, ...data };
             }
             return col;
         });
-        // REFLECT CHNAGE ON THE STATE OF THE LIST PANEL
-        setColumnsState(newState);
 
         // REFLECT CHANGE ON THE TABLE COLUMNS
         updateColumns(newState);
     };
     return (
         <div className="p-2 border-1">
-            <div className="grid grid-cols-1 divide-y-[3px] ">
-                {columnsState.map((col) => (
+            <div data-testid="table-panel-list-testid" className="grid grid-cols-1 divide-y-[3px] ">
+                {columns.map((col) => (
                     <Checkbox
                         key={col.id}
                         id={col.id}
@@ -61,7 +57,7 @@ const TablePanel = () => {
     useOnClickOutside(currentRef, () => setOpen(false));
 
     return (
-        <div className="flex flex-col absolute  z-10 rounded-t-lg text-black right-0 top-[-20px] drop-shadow-2xl ">
+        <div data-testid='table-panel-testid' className="flex flex-col absolute  z-10 rounded-t-lg text-black right-0 top-[-20px] drop-shadow-2xl ">
             <button
                 className=" border rounded-t h-[20px] w-[25px] self-end bg-white flex hover:bg-blue-400 hover:border-blue-400"
                 onClick={handleToggle}
