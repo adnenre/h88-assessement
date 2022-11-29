@@ -16,16 +16,19 @@ npm start
 ```
 
 
-## Screenshot
 
-![alt text](https://github.com/adnenre/h88-assessement/blob/main/table_mobile.png)
-## mobile version 
+
+## Screenshot
 ![alt text](https://github.com/adnenre/h88-assessement/blob/main/table.png)
 
-## table header
+## Table header
  by clicking on the header cell the an icon will be add next to the column title 
  this column will be used as a column to search by ;).
+ ![alt text](https://github.com/adnenre/h88-assessement/blob/main/table_header.png)
 ## Panel
  User could check column to display from the panel on the top right corner of the table.
 
 ![alt text](https://github.com/adnenre/h88-assessement/blob/main/table_panel.png)
+
+## Mobile version 
+![alt text](https://github.com/adnenre/h88-assessement/blob/main/table_mobile.png)
