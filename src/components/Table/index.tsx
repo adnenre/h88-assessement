@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { tableContainerType, Tabletype } from '../Types';
+import { rowType, tableContainerType, Tabletype } from '../Types';
 import TableBody from './TableBody';
 import { TableContext } from './TableContext';
 import TableHead from './TableHead';
 import TablePanel from './TablePanel';
 import { columnType } from '../Types';
 import { buildColumns } from './utils';
+import TablePagination from './TablePagination';
+import usePagination from './hooks/usePagination';
 
 const TableContainer = ({
     updateFilterByField,
@@ -14,10 +16,17 @@ const TableContainer = ({
     rows,
     currentSearch,
     filterByField,
-    displayPanel,
+    showPanel,
+    showPagination,
     ...rest
 }: tableContainerType) => {
     const { Provider } = TableContext;
+    const fnFilterByField = (row: rowType) =>
+        row[filterByField as keyof typeof row]
+            ?.toLowerCase()
+            .startsWith(currentSearch.toLowerCase());
+    const filteredData = rows.filter(fnFilterByField);
+    const _rows = usePagination(filteredData, 25);
     return (
         <Provider
             value={{
@@ -25,12 +34,14 @@ const TableContainer = ({
                 updateFilterByField,
                 columns,
                 rows,
+                _rows,
                 currentSearch,
                 filterByField,
+                showPagination,
             }}
         >
             <div className="relative ">
-                {displayPanel && <TablePanel />}
+                {showPanel && <TablePanel />}
                 <div className="h-[60vh] bg-white overflow-auto">
                     <table
                         className="relative min-w-full table-fixed"
@@ -42,15 +53,24 @@ const TableContainer = ({
                     </table>
                 </div>
             </div>
+            {showPagination && <TablePagination />}
         </Provider>
     );
 };
 
 // TABLE COMPONENT
-const Table = ({ rows, currentSearch, filterByField, colsToDisplay, displayPanel }: Tabletype) => {
+const Table = ({
+    rows,
+    currentSearch,
+    filterByField,
+    colsToDisplay,
+    showPanel,
+    showPagination,
+}: Tabletype) => {
     const initialFiterByField = filterByField ? filterByField : Object.keys(rows[0])[0];
     //
     const initialColumns = buildColumns(rows, colsToDisplay);
+
     // COLUMNS STATE
     const [columns, setColumns] = useState<columnType[]>(initialColumns);
     // SEARCH BY
@@ -73,7 +93,8 @@ const Table = ({ rows, currentSearch, filterByField, colsToDisplay, displayPanel
             filterByField={filterBy}
             updateColumns={handleUpdateColumns}
             updateFilterByField={handleupdateFilterByField}
-            displayPanel={displayPanel}
+            showPanel={showPanel}
+            showPagination={showPagination}
         />
     );
 };
