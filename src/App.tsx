@@ -5,11 +5,10 @@ import Input from './components/Input';
 import Container from './components/Container';
 import Loading from './components/Loading/Loading';
 
-
 // initialize a GraphQL client
 const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: 'https://countries.trevorblades.com',
+    uri: process.env.REACT_APP_API_URL,
 });
 
 // write a GraphQL query that asks for names and codes for all countries
@@ -56,21 +55,19 @@ function App() {
                 placeholder={'Search ...'}
             />
 
-            <Table 
-                // ROW DATA 
-                rows={data.countries} 
-
+            <Table
+                // ROW DATA
+                rows={data.countries}
                 // LISTO OF COLS TO DISPLAY { false ? display all field : display filed is the array }
-                colsToDisplay={['code','name']}
-
-                // CURRENT SEARCH 
-                currentSearch={currentSearch.searchValue} 
-
-                // COLUMN NAME TO SEARCH BY 
-                filterByField={currentSearch.searchField} 
-                
-                // BOOLEAN PROPERTY TO SHOW HIDE RIGHT PANEL 
-                displayPanel 
+                colsToDisplay={['code', 'name']}
+                // CURRENT SEARCH
+                currentSearch={currentSearch.searchValue}
+                // COLUMN NAME TO SEARCH BY
+                filterByField={currentSearch.searchField}
+                // BOOLEAN PROPERTY TO SHOW HIDE RIGHT PANEL
+                showPanel
+                // BOOLEAN PROPERTY TO SHOW PAGINATION
+                showPagination
             />
         </Container>
     );
