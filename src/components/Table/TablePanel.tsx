@@ -9,7 +9,6 @@ const List = () => {
     // GET COLUMNS AND THE FUNCTION UPDATECOLUMNS FOR THE TABLE CONTEXT
     const { updateColumns, columns } = useTableContext();
 
-
     // EVENT HANDELER
     const handleChange = (data: columnType) => {
         // UPDATE CURRENT UPDATED COL STATE
@@ -57,7 +56,10 @@ const TablePanel = () => {
     useOnClickOutside(currentRef, () => setOpen(false));
 
     return (
-        <div data-testid='table-panel-testid' className="flex flex-col absolute  z-10 rounded-t-lg text-black right-0 top-[-20px] drop-shadow-2xl ">
+        <div
+            data-testid="table-panel-testid"
+            className="flex flex-col absolute  z-10 rounded-t-lg text-black right-0 top-[-20px] drop-shadow-2xl "
+        >
             <button
                 className=" border rounded-t h-[20px] w-[25px] self-end bg-white flex hover:bg-blue-400 hover:border-blue-400"
                 onClick={handleToggle}

@@ -4,7 +4,6 @@ import Table from '../components/Table';
 import { columnType, Tabletype } from '../components/Types';
 import { buildColumns } from '../components/Table/utils';
 
-
 describe('<Table />', () => {
     // table column
 
@@ -21,12 +20,12 @@ describe('<Table />', () => {
         filterByField: 'code',
         updateColumns: (cols: columnType[]) => cols,
         updateFilterByField: (col: columnType) => col,
-    }
+    };
 
-    const Tabletest = (props:Tabletype) => <Table {...props} />;
-    
+    const Tabletest = (props: Tabletype) => <Table {...props} />;
+
     const setup = () => {
-        const utils = render(<Tabletest { ...tableprops}/>);
+        const utils = render(<Tabletest {...tableprops} />);
         const table = utils.getByTestId('table-test');
         const tableHeader = utils.getByTestId('table-header-testid');
         return {
@@ -37,8 +36,8 @@ describe('<Table />', () => {
     };
 
     const setupWithoutInitialColumns = () => {
-        const tprops = {...tableprops,colsToDisplay:undefined}
-        const utils = render(<Tabletest { ...tprops} />);
+        const tprops = { ...tableprops, colsToDisplay: undefined };
+        const utils = render(<Tabletest {...tprops} />);
         const table = utils.getByTestId('table-test');
         const tableHeader = utils.getByTestId('table-header-testid');
         return {
@@ -49,10 +48,10 @@ describe('<Table />', () => {
     };
 
     const setupWithPanel = () => {
-        const utils = render(<Tabletest displayPanel { ...tableprops}/>);
+        const utils = render(<Tabletest showPanel {...tableprops} />);
         const table = utils.getByTestId('table-test');
         const panel = utils.getByTestId('table-panel-testid');
-        const list = utils.getByTestId('table-panel-list-testid')
+        const list = utils.getByTestId('table-panel-list-testid');
         return {
             table,
             panel,
