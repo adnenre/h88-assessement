@@ -1,29 +1,28 @@
-# h88-assessement
+# custom search / table with filter panel and pagination
 ## Demo
 
 Check the [Demo](https://adnenre.github.io/h88-assessement/)
 
-## Available Scripts
 
-In the project directory, you can run:
+```bash
+# install dependency
+npm install
 
-### `npm start`
+# run test
+npm test
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# run the app 
+npm start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![alt text](https://github.com/adnenre/h88-assessement/blob/main/table.png)
+## table header
+ by clicking on the header cell the an icon will be add next to the column title 
+ this column will be used as a column to search by ;).
+## Panel
+ User could check column to display from the panel on the top right corner of the table.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![alt text](https://github.com/adnenre/h88-assessement/blob/main/table_panel.png)
